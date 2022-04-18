@@ -9,6 +9,7 @@ import Services from "./Components/Home/Services/Services";
 import Portfolio from './Components/Home/Portfolio/Portfolio';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import Error404 from './Components/404/404';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         <Route path="/services" element={<Services/>} ></Route>
         <Route path="/login" element={<Login/>} ></Route>
         <Route path="/register" element={<Register/>} ></Route>
+
+        <Route path="*" element={<Error404/>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
