@@ -30,9 +30,6 @@ const Header = () => {
               <CustomLink to="/services">Services</CustomLink>
             </Nav.Link>
             <Nav.Link>
-              <CustomLink to="/portfolio">Portfolio</CustomLink>
-            </Nav.Link>
-            <Nav.Link>
               <CustomLink to="/blog">Blog</CustomLink>
             </Nav.Link>
           </Nav>
