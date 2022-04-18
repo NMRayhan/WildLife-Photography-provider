@@ -10,6 +10,9 @@ import Portfolio from './Components/Home/Portfolio/Portfolio';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Error404 from './Components/404/404';
+import ServiceDetails from './Components/Home/ServiceDetails/ServiceDetails';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
+import CheckOut from './Components/CheckOut/CheckOut';
 
 
 function App() {
@@ -25,7 +28,12 @@ function App() {
         <Route path="/services" element={<Services/>} ></Route>
         <Route path="/login" element={<Login/>} ></Route>
         <Route path="/register" element={<Register/>} ></Route>
-
+        <Route path='/service/:serviceId' element={<ServiceDetails/>}></Route>
+        <Route path='/service/:serviceId/checkout' element={
+          <RequireAuth>
+            <CheckOut></CheckOut>
+          </RequireAuth>
+        }></Route>
         <Route path="*" element={<Error404/>}></Route>
       </Routes>
       <Footer></Footer>

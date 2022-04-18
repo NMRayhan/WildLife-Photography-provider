@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useNavigate } from "react-router-dom";
+import Spiner from "../Shared/Spiner/Spiner";
 
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -14,6 +15,11 @@ const SocialLogin = () => {
     useSignInWithFacebook(auth);
   const navigate = useNavigate();
   let errorElement;
+
+  if (loading || loading1) {
+    return <Spiner></Spiner>;
+  }
+
   if (error || error1) {
     errorElement = (
       <p className="text-danger">

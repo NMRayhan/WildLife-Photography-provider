@@ -7,9 +7,10 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import Spiner from "../Shared/Spiner/Spiner";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user] =
+  const [createUserWithEmailAndPassword, user, loading] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, error1] = useUpdateProfile(auth);
   const [agree, setAgree] = useState(false);
@@ -40,6 +41,10 @@ const Register = () => {
   const navigateToLogin = () => {
     navigate(`/login`);
   };
+
+  if (loading || updating) {
+    return <Spiner></Spiner>;
+  }
 
   if (user) {
     console.log("user ", user);

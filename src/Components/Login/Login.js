@@ -1,14 +1,25 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword,
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import Spiner from "../Shared/Spiner/Spiner";
+
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  const [signInWithEmailAndPassword, user] =
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -20,14 +31,33 @@ const Login = () => {
     const password = passwordRef.current.value;
 
     signInWithEmailAndPassword(email, password);
+    navigate(from, { replace: true });
   };
+
+  const handleResetEmail = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Reset email send");
+    }else{
+      toast("Please Provide a valid email address")
+    }
+  };
+
+  if (error) {
+    toast(error.message);
+  }
+
+  if (loading || sending) {
+    return <Spiner></Spiner>;
+  }
 
   const navigateToRegister = () => {
     navigate(`/register`);
   };
 
   if (user) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
 
   return (
@@ -57,7 +87,11 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="secondary" type="submit" className="w-50 d-block mx-auto">
+        <Button
+          variant="secondary"
+          type="submit"
+          className="w-50 d-block mx-auto"
+        >
           Login
         </Button>
       </Form>
@@ -71,7 +105,14 @@ const Login = () => {
           Please Register
         </Link>{" "}
       </p>
+      <p className="mt-2">
+        Forget password?{" "}
+        <button className="btn btn-link" onClick={handleResetEmail}>
+          Reset password
+        </button>{" "}
+      </p>
       <SocialLogin></SocialLogin>
+      <ToastContainer />
     </div>
   );
 };
