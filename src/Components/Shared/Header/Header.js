@@ -6,7 +6,7 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <Navbar bg="secondary" expand="lg">
+    <Navbar bg="secondary" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand
           className="fs-2"
@@ -20,10 +20,13 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/home">Home</CustomLink>
             </Nav.Link>
             <Nav.Link>
               <CustomLink to="/services">Services</CustomLink>
+            </Nav.Link>
+            <Nav.Link>
+              <CustomLink to="/portfolio">Portfolio</CustomLink>
             </Nav.Link>
             <Nav.Link>
               <CustomLink to="/blog">Blog</CustomLink>
