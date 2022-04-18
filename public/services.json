@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "Price": "$520",
+    "name": "Wedding Photography",
+    "description": "Traditional photography captures events as they are supposed to. The beauty of candid wedding photography lies in the natural reactions of the people. It clicks people in their best emotions and brings out the feelings of that moment through a picture.",
+    "img": "https://i.ibb.co/zRWbGzM/service6.jpg"
+  },
+  {
+    "id": 2,
+    "Price": "$120",
+    "name": "WildLife Photography",
+    "description": "Wildlife photography is one of the most exciting photographic genres out there. But it can be difficult to get started as a wildlife photographer because of all the gear, technical know-how, and additional knowledge required.",
+    "img": "https://i.ibb.co/myV56zL/service4.jpg"
+  },
+  {
+    "id": 3,
+    "Price": "$220",
+    "name": "Natural Photography",
+    "description": "Nature photography is a wide range of photography taken outdoors and devoted to displaying natural elements such as landscapes, wildlife, plants, and close-ups of natural scenes and textures",
+    "img": "https://i.ibb.co/1qw4R4Z/service2.jpg"
+  },
+  {
+    "id": 4,
+    "Price": "$100",
+    "name": "Portrait Photography",
+    "description": "Portrait photography, or portraiture, is a type of photography aimed toward capturing the personality of a person or group of people by using effective lighting, backdrops, and poses.",
+    "img": "https://i.ibb.co/W5RTbLz/service3.jpg"
+  },
+  {
+    "id": 5,
+    "Price": "$150",
+    "name": "Food Photography",
+    "description": "Food photography is a still life photography genre used to create attractive still life photographs of food. It is a specialization of commercial photography, the products of which are used in advertisements, magazines, packaging, menus or cookbooks.",
+    "img": "https://i.ibb.co/6b11YM1/service5.jpg"
+  },
+  {
+    "id": 6,
+    "Price": "$320",
+    "name": "Abstract Photography",
+    "description": "Abstract photography, sometimes called non-objective, experimental or conceptual photography, is a means of depicting a visual image that does not have an immediate association with the object world and that has been created through the use of photographic equipment, processes or materials.",
+    "img": "https://i.ibb.co/sRJsh49/service1.jpg"
+  }
+]
